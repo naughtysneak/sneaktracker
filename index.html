@@ -41,19 +41,17 @@
 		function UpdateLoop()
 		{
 			fillInterval = setInterval(() => {
-				radialFill += (performance.now() - elapsed) / 100 * 2;
+				radialFill += (performance.now() - elapsed) / 100 * 0.5;
 				elapsed = performance.now();
 				
 				if (radialFill > 100)
+				{
+					FetchData();
 					radialFill = 0;
+				}
 				
 				radialTimer.style.setProperty('--radial-fill', (radialFill) + '%');
 			}, 10);
-
-			refresh = setInterval(() => {
-				FetchData();
-				radialFill = 100;
-			}, 5000);
 		}
 		
 		window.addEventListener('visibilitychange', () => {
