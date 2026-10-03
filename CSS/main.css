@@ -1,0 +1,96 @@
+:root
+{
+	--timerSize: 24px;
+}
+@property --radial-fill {
+	syntax: '<percentage>';
+	initial-value: 0%;
+	inherits: false;
+}
+
+body {
+	font-family: "Rajdhani-Regular", sans-serif;
+	background: linear-gradient(to top, #150243, #000);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	
+	color: #f1e3ff;
+}
+h1, h2, h3 {
+	font-family: "Rajdhani-Bold", sans-serif;
+}
+h4, h5, h6 {
+	font-family: "Rajdhani-SemiBold", sans-serif;
+}
+p {
+	font-family: "Rajdhani-Medium", sans-serif;
+}
+a {
+	font-family: "Rajdhani-Regular", sans-serif;
+}
+hr {
+	border: dashed 1px #f1e3ff;
+	margin: 4px 0px;
+}
+
+#radialTimer {
+	width: var(--timerSize);
+	height: var(--timerSize);
+	background: conic-gradient(#fff var(--radial-fill), transparent 0);
+	clip-path: circle(50% at 50% 50%);
+
+	margin: auto;
+}
+
+#orderQueue {
+	display: grid;
+	gap: 16px;
+
+	overflow-y: scroll;
+
+	max-height: 80vh;
+}
+.queue-card {
+	display: block;
+}
+
+.card-id {
+	font-family: "Rajdhani-SemiBold", sans-serif;
+	text-align: center;
+	background-color: #411593;
+
+	margin: 0px auto;
+	padding: 2px;
+	max-width: 256px;
+
+	clip-path: polygon(0% 100%, 8px 0%, calc(100% - 8px) 0%, 100% 100%, 0% 100%);
+}
+.card-body {
+	background-color: #30069240;
+	border: solid 2px #411593;
+	border-radius: 8px;
+
+	padding: 4px 8px;
+	margin: 0px;
+}
+.card-description, .card-order {
+	margin: 4px 0px;
+	padding: 4px;
+}
+
+@font-face {
+	font-family: "Rajdhani-Bold";
+	src: url("../Fonts/Rajdhani-Bold.ttf");
+}
+@font-face {
+	font-family: "Rajdhani-SemiBold";
+	src: url("../Fonts/Rajdhani-SemiBold.ttf");
+}
+@font-face {
+	font-family: "Rajdhani-Medium";
+	src: url("../Fonts/Rajdhani-Medium.ttf");
+}
+@font-face {
+	font-family: "Rajdhani-Regular";
+	src: url("../Fonts/Rajdhani-Regular.ttf");
+}

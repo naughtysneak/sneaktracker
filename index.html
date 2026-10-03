@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Sneaktracker</title>
+
+		<link rel="stylesheet" href="./CSS/main.css?v=1.0.0" type="text/css">
+	</head>
+
+	<body>
+		<div id="radialTimer"></div>
+		<div id="orderQueue">
+			<h1 style="text-align: center;">Order Queue</h1>
+		</div>
+	</body>
+
+	<script src="./JS/queueReader.js"></script>
+	<script>
+		FetchData();
+		
+		let elapsed = performance.now();
+		let radialTimer = document.getElementById('radialTimer');
+		let radialFill = 0;
+
+		let fillInterval = null;
+		let refresh = null;
+		UpdateLoop();
+		
+		function UpdateLoop()
+		{
+			fillInterval = setInterval(() => {
+				radialFill += (performance.now() - elapsed) / 100 * 2;
+				elapsed = performance.now();
+				
+				if (radialFill > 100)
+					radialFill = 0;
+				
+				radialTimer.style.setProperty('--radial-fill', (radialFill) + '%');
+			}, 10);
+
+			refresh = setInterval(() => {
+				FetchData();
+				radialFill = 100;
+			}, 5000);
+		}
+		
+		window.addEventListener('visibilitychange', () => {
+			if (document.hidden)
+			{
+				clearInterval(fillInterval);
+				clearInterval(refresh);
+			}
+			else
+				UpdateLoop();
+		});
+	</script>
+</html>
