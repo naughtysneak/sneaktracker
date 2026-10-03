@@ -10,6 +10,11 @@
 			"id": "NS-002",
 			"order": "4 NSFW Stickers",
 			"description": "Penis cock"
+		},
+		{
+			"id": "NS-003",
+			"order": "1 SFW Sticker",
+			"description": "Moth man being a gay."
 		}
 	]
 }
