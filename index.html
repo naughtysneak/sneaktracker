@@ -16,17 +16,20 @@
 		<meta name="twitter:image" content="https://naughtysneak.github.io/sneaktracker/Graphics/Beast-Face.png">
 		
 		<title>Sneaktracker</title>
-		<link rel="stylesheet" href="./CSS/main.css?v=1.0.0" type="text/css">
+		<link rel="stylesheet" href="./CSS/main.css?v=1.1.0" type="text/css">
 	</head>
 
 	<body>
-		<div id="radialTimer"></div>
+		<h1 id="queueTitle">Order Queue</h1>
 		<div id="orderQueue">
-			<h1 style="text-align: center;">Order Queue</h1>
+			<div id="radialTimer"></div>
+		</div>
+		<div id="progressBar">
+			<p id="financialProgressText"></p>
 		</div>
 	</body>
 
-	<script src="./JS/queueReader.js"></script>
+	<script src="./JS/queueReader.js?v=1.0.0"></script>
 	<script>
 		FetchData();
 		
@@ -35,19 +38,22 @@
 		let radialFill = 0;
 
 		let fillInterval = null;
-		let refresh = null;
+		let fillRate = 100.0 / 10000.0;
 		UpdateLoop();
 		
 		function UpdateLoop()
 		{
 			fillInterval = setInterval(() => {
-				radialFill += (performance.now() - elapsed) / 100 * 0.5;
-				elapsed = performance.now();
+				let now = performance.now();
+				let delta = now - elapsed;
+				elapsed = now;
+
+				radialFill += delta * fillRate;
 				
 				if (radialFill > 100)
 				{
 					FetchData();
-					radialFill = 0;
+					radialFill %= 100;
 				}
 				
 				radialTimer.style.setProperty('--radial-fill', (radialFill) + '%');
@@ -55,12 +61,9 @@
 		}
 		
 		window.addEventListener('visibilitychange', () => {
-			if (document.hidden)
-			{
-				clearInterval(fillInterval);
-				clearInterval(refresh);
-			}
-			else
+			clearInterval(fillInterval);
+			
+			if (!document.hidden)
 				UpdateLoop();
 		});
 	</script>

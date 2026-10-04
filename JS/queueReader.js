@@ -14,9 +14,9 @@ class QueueCard
 	{
 		this.cardBody.classList.add("queue-card");
 		this.cardBody.innerHTML = `
-			<h2 class="card-id">ID: ${information.id}</h2>
+			<h3 class="card-id">ID: ${information.id}</h3>
 			<div class="card-body">
-				<h3 class="card-order">Order - ${information.order}</h3>
+				<h4 class="card-order">Order - ${information.order}</h4>
 				<hr>
 				<p class="card-description">${information.description}</p>
 			</div>
@@ -32,6 +32,8 @@ class QueueCard
 }
 
 let orderQueue = document.getElementById("orderQueue");
+let financialProgressText = document.getElementById("financialProgressText");
+let progressBar = document.getElementById("progressBar");
 let queue = [];
 let allQueueCards = [];
 
@@ -41,7 +43,12 @@ async function FetchData()
 	var response = await fetch(URL).then(res => res.json());
 	
 	queue = response.commissionQueue;
-	UpdateQueueList(queue, allQueueCards);
+
+	let progress = (response.financialProgress[0].currentAmount / response.financialProgress[0].targetAmount) * 100;
+	financialProgressText.textContent = `Financial Progress: $${response.financialProgress[0].currentAmount} / $${response.financialProgress[0].targetAmount}`;
+	progressBar.style.setProperty("--progress-fill", `${progress}%`);
+
+	// UpdateQueueList(queue, allQueueCards);
 }
 
 function UpdateQueueList(queue, allCards)

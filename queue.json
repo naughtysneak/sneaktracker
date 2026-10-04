@@ -6,5 +6,12 @@
 			"order": "1 NSFW Sticker",
 			"description": "You can see how the sneak does the naughty in real time!"
 		}
+	],
+	"financialProgress":
+	[
+		{
+			"currentAmount": "0",
+			"targetAmount": "1000"
+		}
 	]
 }
