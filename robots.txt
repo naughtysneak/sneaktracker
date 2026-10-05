@@ -1,0 +1,36 @@
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Disallow: /
+
+# Google Gemini Training
+User-agent: Google-Extended
+Disallow: /
+
+# Apple Intelligence Training
+User-agent: Applebot-Extended
+Disallow: /
+
+# Meta AI Training
+User-agent: FacebookBot
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+# Common Crawl
+User-agent: CCBot
+Disallow: /
+
+# ByteDance
+User-agent: Bytespider
+Disallow: /
+
+# Other Generative LLM Developers & Bulk Data Brokers
+User-agent: DeepSeekBot
+User-agent: cohere-ai
+User-agent: diffbot
+User-agent: omgili
+Disallow: /
