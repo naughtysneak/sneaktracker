@@ -2,9 +2,16 @@
 	"commissionQueue":
 	[
 		{
-			"id": "NS-001",
-			"order": "1 NSFW Sticker",
-			"description": "You can see how the sneak does the naughty in real time!"
+			"id": "001",
+			"order": "$16 - 1 SFW Sticker",
+			"description": "Orion and Cyro hugging",
+			"isReservation": true
+		},
+		{
+			"id": "002",
+			"order": "$16 - 1 SFW Sticker",
+			"description": "Gail holding a mirror at Orion to show him who the coolest guy is. (P.S. It's actually Gail!)",
+			"isReservation": true
 		}
 	],
 	"financialProgress":
