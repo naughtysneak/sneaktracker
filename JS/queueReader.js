@@ -30,6 +30,14 @@ class QueueCard
 			orderQueue.appendChild(this.cardBody);
 	}
 
+	UpdateInformation(reserved)
+	{
+		if(reserved)
+			this.cardBody.classList.add("card-reservation");
+		else
+			this.cardBody.classList.remove("card-reservation");
+	}
+
 	Destroy()
 	{
 		if (this.cardBody && this.cardBody.parentNode)
@@ -74,6 +82,9 @@ function UpdateQueueList(queue, allCards)
 	else
 	{
 		for(let i = 0; i < queue.length; i++)
+		{
 			allCards[i].PopulateInformation(queue[i]);
+			allCards[i].UpdateInformation(queue[i].isReservation);
+		}
 	}
 }
