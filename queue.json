@@ -5,13 +5,13 @@
 			"id": "001",
 			"order": "$16 - 1 SFW Sticker",
 			"description": "Orion and Cyro hugging",
-			"isReservation": true
+			"isReservation": false
 		}
 	],
 	"financialProgress":
 	[
 		{
-			"currentAmount": "50.20",
+			"currentAmount": "64.71",
 			"targetAmount": "1000"
 		}
 	]
